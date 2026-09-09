@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Serajeddin Elgheryani - Data Analyst and Business Intelligence portfolio." />
+  <title>Serajeddin Elgheryani | Data Analyst & BI</title>
+  <script>
+    (function(){
+      var storedTheme = null;
+      try {
+        storedTheme = window.localStorage ? window.localStorage.getItem("portfolio-theme") : null;
+      } catch (error) {}
+      var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : (systemDark ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.dataset.themeMode = storedTheme === "light" || storedTheme === "dark" ? storedTheme : "auto";
+      document.documentElement.style.colorScheme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f7f4;--bg-soft:#eeeeea;--card:#ffffff;--surface:#f8f8f5;--surface-strong:#ededeb;
+      --text:#111318;--muted:#616873;--subtle:#87909c;--line:#deded8;--line-strong:#c9cac4;
+      --nav-bg:rgba(247,247,244,.86);--accent:#3559e0;--accent-soft:#eef2ff;
+      --chart-axis:#d3d5dc;--chart-grid:#ececf0;--mock:#ffffff;--mock-muted:#f2f5f7;
+      --contact-bg:#101217;--contact-text:#f8fafc;--contact-muted:#b7bfcc;
+      --shadow:0 18px 50px rgba(17,19,24,.07);--radius:14px;--max:1240px;
+    }
+    :root[data-theme="dark"]{
+      --bg:#0c0f14;--bg-soft:#111720;--card:#141922;--surface:#10151d;--surface-strong:#1b2230;
+      --text:#f4f7fb;--muted:#a7b0bd;--subtle:#7f8997;--line:#28313f;--line-strong:#394454;
+      --nav-bg:rgba(12,15,20,.88);--accent-soft:#172349;--chart-axis:#4b5566;--chart-grid:#273140;
+      --mock:#111822;--mock-muted:#182130;--contact-bg:#080b10;--contact-text:#f4f7fb;--contact-muted:#aab3c0;
+      --shadow:0 18px 50px rgba(0,0,0,.28);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg) 62%,var(--bg-soft) 100%);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.6}
+    body,.site-nav,.button,.theme-toggle,.theme-option,.mobile-menu-button,.mobile-panel,.metric,.case-study,.case-detail,.detail-block,.screenshot-card,.lightbox,.lightbox-panel,.project-visual,.mockup,.pill,.experience-item,.education-card,.skill-group,.contact-panel{transition:background-color .22s ease,border-color .22s ease,color .22s ease,box-shadow .22s ease}
+    a{color:inherit;text-decoration:none}button{font:inherit}.container{width:min(calc(100% - 48px),var(--max));margin:auto}
+    .site-nav{position:sticky;top:0;z-index:60;background:var(--nav-bg);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
+    .nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{font-family:"Manrope",sans-serif;font-size:18px;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+    .nav-links{display:flex;align-items:center;gap:26px;color:var(--muted);font-size:14px;font-weight:700}.nav-links a:hover{color:var(--text)}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .theme-toggle{display:flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+    .theme-option{width:30px;height:30px;border:0;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--subtle);background:transparent;cursor:pointer;padding:0}
+    .theme-option svg,.mobile-menu-button svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .theme-option:hover{color:var(--text)}
+    :root[data-theme-mode="light"] .theme-option[data-theme-value="light"],:root[data-theme-mode="dark"] .theme-option[data-theme-value="dark"],:root[data-theme-mode="auto"] .theme-option[data-theme-value="auto"]{background:var(--text);color:var(--bg)}
+    .mobile-menu-button{display:none;width:38px;height:38px;border:1px solid var(--line);border-radius:999px;color:var(--text);background:var(--card);align-items:center;justify-content:center;cursor:pointer}
+    .mobile-panel{display:none;border-top:1px solid var(--line);background:var(--nav-bg);padding:10px 24px 18px}.mobile-panel a{display:block;padding:12px 0;color:var(--muted);font-weight:800}.mobile-panel a:hover{color:var(--text)}
+    .hero{padding:76px 0 32px}.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:56px;align-items:end}
+    .eyebrow{color:var(--accent);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.12em;margin:0 0 14px}
+    h1,h2,h3{font-family:"Manrope",sans-serif;letter-spacing:-.035em;margin:0}h1{font-size:clamp(38px,6.1vw,72px);line-height:.98;max-width:980px}
+    .role{font-family:"Manrope",sans-serif;font-size:clamp(20px,3vw,32px);font-weight:800;letter-spacing:-.03em;margin:4px 0 24px;color:var(--muted)}
+    .hero-copy{max-width:790px;font-size:clamp(17px,2vw,21px);color:var(--muted);margin:24px 0 28px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 16px;border-radius:10px;border:1px solid var(--line);font-weight:800}
+    .button.primary{background:var(--text);border-color:var(--text);color:var(--bg)}.button.secondary{background:var(--card);color:var(--text)}.button:hover{transform:translateY(-1px)}
+    .hero-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px;color:var(--muted);font-size:14px;font-weight:800}.hero-links a:hover{color:var(--text)}
+    .profile-panel{border-left:1px solid var(--line);padding-left:28px}.profile-panel dl{margin:0;display:grid;gap:18px}.profile-panel dt{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--subtle);font-weight:800}.profile-panel dd{margin:4px 0 0;font-weight:800}
+    .metrics{padding:16px 0 44px}.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:var(--card);border-radius:var(--radius);overflow:hidden}
+    .metric{padding:20px;border-right:1px solid var(--line)}.metric:last-child{border-right:0}.metric strong{display:block;font-family:"Manrope",sans-serif;font-size:clamp(21px,2.4vw,30px);letter-spacing:-.03em}.metric span{display:block;color:var(--muted);font-size:13px;font-weight:700;margin-top:4px}
+    section{padding:48px 0;scroll-margin-top:92px}.section-head{display:grid;grid-template-columns:minmax(0,.9fr) minmax(260px,.55fr);gap:40px;align-items:end;margin-bottom:24px}.section-kicker{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900;margin-bottom:8px}h2{font-size:clamp(30px,4.2vw,52px);line-height:1}.section-head p{margin:0;color:var(--muted)}
+    .case-stack{display:grid;gap:16px}.case-study{display:grid;grid-template-columns:minmax(0,.96fr) minmax(320px,.72fr);border:1px solid var(--line);border-radius:var(--radius);background:var(--card);overflow:hidden}.case-study.completed{border-color:var(--line-strong);box-shadow:var(--shadow)}.case-study.building{grid-template-columns:minmax(0,1fr) minmax(260px,.48fr);opacity:.86}.case-copy{padding:30px}.case-study.building .case-copy{padding:22px 26px}
+    .case-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.pill{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:6px 9px;font-size:12px;font-weight:900}.pill.active{background:var(--accent-soft);border-color:rgba(53,89,224,.28);color:var(--accent)}
+    .case-copy h3{font-size:clamp(26px,3.8vw,44px);line-height:1.04;margin-bottom:6px}.subtitle{font-weight:900;color:var(--muted);margin:0 0 16px}.case-copy p{color:var(--muted);margin:0 0 18px}
+    .work-list{display:grid;gap:10px;margin:20px 0;padding:0;list-style:none}.work-list li{display:grid;grid-template-columns:18px 1fr;gap:10px;color:var(--muted)}.work-list li:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:10px}
+    .tech-row{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.project-visual{min-height:420px;padding:28px;background:var(--surface);border-left:1px solid var(--line);display:flex;align-items:center}.case-study.building .project-visual{min-height:290px;padding:22px}
+    .mockup{width:100%;border:1px solid var(--line);border-radius:12px;background:var(--mock);padding:18px;box-shadow:var(--shadow)}.mockup-top{display:flex;gap:6px;margin-bottom:16px}.mockup-top i{width:7px;height:7px;border-radius:50%;background:var(--line-strong)}
+    .product-screen{display:grid;gap:14px}.product-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}.product-logo{font-family:"Manrope",sans-serif;font-size:24px;font-weight:900;color:var(--accent)}
+    .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.product-tile{background:var(--mock-muted);border:1px solid var(--line);border-radius:10px;padding:14px}.product-tile strong{display:block;font-family:"Manrope",sans-serif;font-size:22px}.product-tile span{color:var(--muted);font-size:12px;font-weight:700}
+    .activity-row{display:flex;justify-content:space-between;gap:18px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-weight:800}.activity-row span{color:var(--muted);font-size:13px;font-weight:700}
+    .screenshot-placeholder{display:grid;gap:14px;align-content:center;min-height:340px;text-align:left}
+    .screenshot-frame{border:1px dashed var(--line-strong);border-radius:12px;background:var(--mock-muted);padding:22px;min-height:220px;display:grid;align-content:center;gap:10px}
+    .screenshot-frame strong{font-family:"Manrope",sans-serif;font-size:24px;letter-spacing:-.03em}
+    .screenshot-frame span{color:var(--muted);font-weight:700}
+    .metric-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .metric-chip{border:1px solid var(--line);border-radius:10px;background:var(--mock-muted);padding:12px}
+    .metric-chip strong{display:block;font-family:"Manrope",sans-serif;font-size:20px;line-height:1.05}.metric-chip span{display:block;color:var(--muted);font-size:12px;font-weight:800;margin-top:4px}
+    .case-detail{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:30px;box-shadow:var(--shadow)}
+    .case-detail + .case-detail{margin-top:18px}.case-detail header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:start;border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:24px}.case-detail h3{font-size:clamp(30px,4vw,48px);line-height:1}.case-detail p{color:var(--muted);margin:0}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.detail-block{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:20px}.detail-block.wide{grid-column:1/-1}.detail-block h4{font-family:"Manrope",sans-serif;font-size:18px;letter-spacing:-.02em;margin:0 0 10px}.detail-block ul{margin:0;padding-left:18px;color:var(--muted)}.detail-block li{margin-bottom:8px}.detail-block li:last-child{margin-bottom:0}.back-link{margin-top:24px}
+    .screenshot-gallery{display:grid;gap:14px}.supporting-screenshots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.screenshot-card{display:block;width:100%;border:1px solid var(--line);border-radius:12px;background:var(--mock);padding:0;text-align:left;color:inherit;overflow:hidden;cursor:pointer}.screenshot-card.primary{border-color:var(--line-strong)}.screenshot-card:hover{border-color:var(--accent)}.screenshot-card img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;background:var(--mock-muted)}.screenshot-caption{display:block;padding:12px 14px;color:var(--muted);font-size:13px;font-weight:800}.lightbox{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(5,7,10,.76);backdrop-filter:blur(8px)}.lightbox.is-open{display:flex}.lightbox-panel{width:min(1120px,100%);max-height:calc(100vh - 56px);border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden;box-shadow:var(--shadow)}.lightbox-top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 14px;border-bottom:1px solid var(--line)}.lightbox-title{color:var(--muted);font-size:14px;font-weight:900}.lightbox-close{width:36px;height:36px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);cursor:pointer;font-weight:900}.lightbox-image-wrap{max-height:calc(100vh - 124px);overflow:auto;background:var(--surface)}.lightbox img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}.lightbox-caption{padding:12px 14px;color:var(--muted);font-size:14px;font-weight:800}.lightbox-open{overflow:hidden}
+    .building-visual{display:grid;gap:10px}.building-line{height:10px;background:var(--mock-muted);border:1px solid var(--line);border-radius:999px}.building-line:nth-child(2){width:82%}.building-line:nth-child(3){width:64%}.building-panel{border:1px dashed var(--line-strong);border-radius:12px;padding:14px;color:var(--muted);font-weight:800}
+    .experience-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px}.timeline{border-top:1px solid var(--line)}.experience-item{display:grid;grid-template-columns:220px 1fr;gap:28px;padding:28px 0;border-bottom:1px solid var(--line)}.experience-item time,.experience-item .location{display:block;color:var(--muted);font-weight:800}.experience-item h3{font-size:25px;line-height:1.1;margin-bottom:4px}.experience-item ul{margin:16px 0 0;padding-left:18px;color:var(--muted)}.experience-item li{margin-bottom:8px}
+    .education-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:24px;height:max-content}.education-card h3{font-size:24px;line-height:1.12;margin-bottom:12px}.education-card p{margin:0;color:var(--muted);font-weight:800}
+    .about-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.skill-group{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:22px}.skill-group h3{font-size:20px;margin-bottom:14px}.skill-tags{display:flex;gap:8px;flex-wrap:wrap}
+    .contact-panel{background:var(--contact-bg);color:var(--contact-text);border-radius:var(--radius);padding:34px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:end}.contact-panel p{color:var(--contact-muted);margin:14px 0 0;max-width:620px}.contact-links{display:grid;gap:8px;margin-top:22px;font-weight:800}.contact-links a{color:var(--contact-text)}.contact-panel .button{background:var(--contact-text);border-color:var(--contact-text);color:var(--contact-bg)}
+    footer{padding:28px 0 42px;color:var(--muted);font-size:14px}.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    @media(max-width:1024px){.hero-grid{grid-template-columns:minmax(0,1fr) 300px;gap:36px}.case-study{grid-template-columns:1fr}.project-visual{border-left:0;border-top:1px solid var(--line);min-height:320px}.case-study.building .project-visual{min-height:240px}.experience-layout{grid-template-columns:1fr}.profile-panel{border-left:0;border-top:1px solid var(--line);padding:24px 0 0}.metrics-grid{grid-template-columns:repeat(2,1fr)}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+    @media(max-width:768px){.container{width:min(calc(100% - 40px),var(--max))}.nav-links{display:none}.mobile-menu-button{display:inline-flex}.nav-inner{height:64px}.site-nav.menu-open .mobile-panel{display:block}.nav-actions{gap:8px}.brand{font-size:16px}.theme-option{width:28px;height:28px}.hero{padding:42px 0 20px}.hero-grid,.case-study{grid-template-columns:1fr}section{padding:36px 0}.section-head{grid-template-columns:1fr;gap:14px}.case-detail header,.detail-grid,.supporting-screenshots{grid-template-columns:1fr}.case-detail header .button{justify-self:start}.experience-item{grid-template-columns:1fr;gap:10px}.about-grid{grid-template-columns:1fr}.contact-panel{grid-template-columns:1fr}}
+    @media(max-width:520px){.container{width:min(calc(100% - 40px),var(--max))}.brand{max-width:150px;white-space:normal;line-height:1.05}.nav-actions{gap:6px}.theme-toggle{padding:2px}.theme-option{width:26px;height:26px}.mobile-menu-button{width:34px;height:34px}h1{font-size:clamp(32px,10.2vw,44px);line-height:1.02}.role{font-size:20px}.actions,.contact-panel .actions{display:grid;grid-template-columns:1fr;width:100%}.hero-links{gap:12px}.metrics-grid{grid-template-columns:1fr}.metric{border-right:0;border-bottom:1px solid var(--line)}.metric:last-child{border-bottom:0}.case-copy,.project-visual,.case-detail,.contact-panel{padding:22px}.case-study.building .case-copy{padding:20px}.case-study.building .project-visual{min-height:180px;padding:18px}.building-visual{gap:8px}.building-panel{padding:12px}.building-line{height:8px}.product-grid,.metric-strip{grid-template-columns:1fr}.screenshot-placeholder{min-height:0}.screenshot-frame{min-height:180px}.lightbox{padding:14px}.lightbox-panel{max-height:calc(100vh - 28px)}.lightbox-image-wrap{max-height:calc(100vh - 112px)}}
+  </style>
+</head>
+<body>
+  <nav class="site-nav" id="siteNav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">Serajeddin Elgheryani</a>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <div class="theme-toggle" role="group" aria-label="Theme preference">
+          <button class="theme-option" type="button" data-theme-value="light" aria-label="Use light theme" title="Light"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+          <button class="theme-option" type="button" data-theme-value="dark" aria-label="Use dark theme" title="Dark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.7A8.5 8.5 0 0 1 9.3 3.8a8.5 8.5 0 1 0 10.9 10.9Z"/></svg></button>
+          <button class="theme-option" type="button" data-theme-value="auto" aria-label="Use system theme" title="Auto / System"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></button>
+        </div>
+        <button class="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open navigation menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+    <div class="mobile-panel" id="mobilePanel"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Serajeddin Elgheryani</p>
+          <p class="role">Data Analyst & Business Intelligence</p>
+          <h1>Turning complex data into clear insights, better reporting, and smarter business decisions.</h1>
+          <p class="hero-copy">Management Information Systems graduate with hands-on experience in fintech, data analysis, dashboard development, reporting automation, statistical analysis, and product analytics. I enjoy working at the intersection of data, business, and technology to turn messy information into practical decisions.</p>
+          <div class="actions"><a class="button primary" href="#work">View Projects</a><a class="button secondary" href="assets/Seraj_CV_Data_Analyst.pdf" download>Download CV</a></div>
+          <div class="hero-links"><a href="https://www.linkedin.com/in/sirajgheryani" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Sirajgh8899" target="_blank" rel="noopener">GitHub</a><a href="mailto:sirajeddin8899@gmail.com">Email</a></div>
+        </div>
+        <aside class="profile-panel" aria-label="Portfolio summary">
+          <dl>
+            <div><dt>Focus</dt><dd>Data analytics, BI, SQL, Power BI, FinTech</dd></div>
+            <div><dt>Based in</dt><dd>Istanbul, Turkey</dd></div>
+            <div><dt>Direction</dt><dd>Data Analytics · BI · FinTech</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </header>
+
+    <section class="metrics" aria-label="Portfolio metrics">
+      <div class="container metrics-grid">
+        <div class="metric"><strong>20+</strong><span>data discrepancies identified</span></div>
+        <div class="metric"><strong>5+</strong><span>dashboards delivered</span></div>
+        <div class="metric"><strong>12+</strong><span>operational reports</span></div>
+        <div class="metric"><strong>~8 hrs/week</strong><span>reporting time saved</span></div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head"><div><div class="section-kicker">Work</div><h2>Selected Projects</h2></div><p>Analytics, product, and reporting work built around real business problems.</p></div>
+        <div class="case-stack">
+          <article class="case-study completed" id="olist">
+            <div class="case-copy">
+              <div class="case-meta"><span class="pill active">Completed Project</span><span class="pill">Operations & Customer Experience Analytics</span></div>
+              <h3>Olist E-Commerce</h3><p class="subtitle">Operations & Customer Experience Analytics</p>
+              <p>End-to-end analysis of 99K+ Brazilian e-commerce orders to understand delivery performance, customer experience, seller performance, and the operational factors influencing customer satisfaction.</p>
+              <div class="tech-row"><span class="pill">99K+ Orders Analyzed</span><span class="pill">8.11% Late-Delivery Rate</span><span class="pill">1.72-Point Review Score Gap</span></div>
+              <ul class="work-list">
+                <li>Cleaned and validated the Olist e-commerce dataset using Python.</li>
+                <li>Built and worked with a relational data model in PostgreSQL.</li>
+                <li>Used SQL to analyze delivery performance, customer experience, sellers, product categories, and geographic patterns.</li>
+                <li>Developed business KPIs for operational and customer-experience performance.</li>
+                <li>Identified an 8.11% late-delivery rate.</li>
+                <li>Found a 1.72-point difference in average review scores between on-time and late orders.</li>
+                <li>Analyzed delivery-stage, geographic, seller, and product-category patterns.</li>
+                <li>Translated analytical findings into operational recommendations.</li>
+                <li>Built a 3-page Power BI dashboard covering Executive KPIs, Delivery & Customer Experience, and Seller & Category Performance.</li>
+              </ul>
+              <div class="tech-row"><span class="pill">Python</span><span class="pill">PostgreSQL</span><span class="pill">SQL</span><span class="pill">Power BI</span></div>
+              <div class="actions"><a class="button primary" href="#case-study-olist">View Case Study</a><a class="button secondary" href="https://github.com/Sirajgh8899/Olist-E-Commerce-Operations-Customer-Experience-Analytics-SQL-Power-BI-Python" target="_blank" rel="noopener">View on GitHub</a></div>
+            </div>
+            <div class="project-visual">
+              <div class="mockup screenshot-placeholder" aria-label="Olist Power BI dashboard screenshot placeholder">
+                <div class="mockup-top"><i></i><i></i><i></i></div>
+                <div class="screenshot-frame">
+                  <strong>Olist Power BI dashboard screenshot</strong>
+                  <span>Reserved for the real dashboard image: Executive KPIs, Delivery & Customer Experience, and Seller & Category Performance.</span>
+                </div>
+                <div class="metric-strip">
+                  <div class="metric-chip"><strong>99K+</strong><span>orders analyzed</span></div>
+                  <div class="metric-chip"><strong>8.11%</strong><span>late-delivery rate</span></div>
+                  <div class="metric-chip"><strong>1.72</strong><span>review score gap</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-study completed" id="learnofy">
+            <div class="case-copy">
+              <div class="case-meta"><span class="pill active">Live project</span><span class="pill">Product Analytics & Operations Platform</span></div>
+              <h3>Learnofy</h3><p class="subtitle">Product Analytics & Operations Platform</p>
+              <p>Learnofy is a live student and campus platform combining study tools, student engagement, cafe promotions, scheduling, and analytics.</p>
+              <ul class="work-list">
+                <li>Wrote SQL queries to analyse student engagement, session behaviour, and promotional performance.</li>
+                <li>Built dashboard and reporting workflows for student and cafe-side metrics.</li>
+                <li>Developed data workflows for synchronising student activity and venue operations data.</li>
+                <li>Created Excel models for progress tracking and reward systems.</li>
+                <li>Conducted feedback sessions with students and cafe owners to refine analytics outputs.</li>
+                <li>Audited reporting logic, identified inconsistencies, and improved data reliability.</li>
+                <li>Used Claude, Codex, and Gemini to accelerate prototyping, workflow design, and product iteration.</li>
+              </ul>
+              <div class="tech-row"><span class="pill">SQL</span><span class="pill">Excel</span><span class="pill">Tableau</span><span class="pill">Snowflake</span><span class="pill">Framer</span><span class="pill">AI-assisted development</span></div>
+              <div class="actions"><a class="button primary" href="#case-study-learnofy">View Case Study</a><a class="button secondary" href="#contact">Visit Live Product</a></div>
+            </div>
+            <div class="project-visual">
+              <div class="mockup product-screen" aria-label="Learnofy product mockup">
+                <div class="mockup-top"><i></i><i></i><i></i></div>
+                <div class="product-header"><div class="product-logo">Learnofy</div><span class="pill active">Campus ops</span></div>
+                <div class="product-grid"><div class="product-tile"><strong>Student</strong><span>study activity, sessions, rewards</span></div><div class="product-tile"><strong>Cafe</strong><span>promotions, redemptions, traffic</span></div></div>
+                <div class="activity-row"><b>AI lecture summaries</b><span>Engagement signal</span></div>
+                <div class="activity-row"><b>Promotion performance</b><span>Venue reporting</span></div>
+                <div class="activity-row"><b>Reward progress</b><span>Excel model</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-study building">
+            <div class="case-copy"><div class="case-meta"><span class="pill active">Currently Building</span><span class="pill">Executive BI Dashboard</span></div><h3>Executive BI Dashboard</h3><p>A planned BI portfolio build for executive reporting, dashboard storytelling, KPI definitions, and operational decision support.</p><div class="tech-row"><span class="pill">Power BI</span><span class="pill">Excel</span><span class="pill">DAX</span></div></div>
+            <div class="project-visual"><div class="mockup building-visual" aria-label="Currently building placeholder"><div class="mockup-top"><i></i><i></i><i></i></div><div class="building-panel">Dashboard screenshots and source documentation will replace this build note when the project is complete.</div><div class="building-line"></div><div class="building-line"></div><div class="building-line"></div></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="case-study-olist" aria-labelledby="olist-case-title">
+      <div class="container">
+        <article class="case-detail">
+          <header>
+            <div>
+              <div class="case-meta"><span class="pill active">Completed Project</span><span class="pill">Operations & Customer Experience Analytics</span></div>
+              <h3 id="olist-case-title">Olist E-Commerce Case Study</h3>
+              <p>End-to-end analysis of 99K+ Brazilian e-commerce orders to understand delivery performance, customer experience, seller performance, and the operational factors influencing customer satisfaction.</p>
+            </div>
+            <a class="button secondary" href="#work">← Back to Projects</a>
+          </header>
+          <div class="detail-grid">
+            <div class="detail-block"><h4>Project Overview</h4><p>Completed data analytics project focused on delivery performance, customer experience, seller performance, and operational factors influencing satisfaction.</p></div>
+            <div class="detail-block"><h4>Business Problem</h4><p>Understand where delivery, seller, product-category, and geography patterns affect customer experience and operational performance.</p></div>
+            <div class="detail-block"><h4>Dataset</h4><p>Olist e-commerce dataset with 99K+ Brazilian e-commerce orders.</p></div>
+            <div class="detail-block"><h4>Data Preparation / Cleaning</h4><p>Cleaned and validated the Olist e-commerce dataset using Python.</p></div>
+            <div class="detail-block"><h4>Data Model</h4><p>Built and worked with a relational data model in PostgreSQL.</p></div>
+            <div class="detail-block"><h4>SQL Analysis</h4><p>Used SQL to analyze delivery performance, customer experience, sellers, product categories, and geographic patterns.</p></div>
+            <div class="detail-block"><h4>KPIs</h4><ul><li>99K+ Orders Analyzed</li><li>8.11% Late-Delivery Rate</li><li>1.72-Point Review Score Gap</li></ul></div>
+            <div class="detail-block"><h4>Key Findings</h4><ul><li>Identified an 8.11% late-delivery rate.</li><li>Found a 1.72-point difference in average review scores between on-time and late orders.</li><li>Analyzed delivery-stage, geographic, seller, and product-category patterns.</li></ul></div>
+            <div class="detail-block wide">
+              <h4>Power BI Dashboard</h4>
+              <div class="screenshot-gallery" aria-label="Olist Power BI dashboard screenshots">
+                <button class="screenshot-card primary" type="button" data-lightbox-src="assets/projects/olist/executive-overview.png" data-lightbox-caption="Executive Overview / KPIs">
+                  <img src="assets/projects/olist/executive-overview.png" alt="Olist Power BI dashboard showing executive overview and KPIs" width="2538" height="1420" loading="lazy" />
+                  <span class="screenshot-caption">Executive Overview / KPIs</span>
+                </button>
+                <div class="supporting-screenshots">
+                  <button class="screenshot-card" type="button" data-lightbox-src="assets/projects/olist/delivery-customer-experience.png" data-lightbox-caption="Delivery & Customer Experience">
+                    <img src="assets/projects/olist/delivery-customer-experience.png" alt="Olist Power BI dashboard showing delivery and customer experience analysis" width="2524" height="1426" loading="lazy" />
+                    <span class="screenshot-caption">Delivery & Customer Experience</span>
+                  </button>
+                  <button class="screenshot-card" type="button" data-lightbox-src="assets/projects/olist/seller-category-performance.png" data-lightbox-caption="Seller & Category Performance">
+                    <img src="assets/projects/olist/seller-category-performance.png" alt="Olist Power BI dashboard showing seller and category performance" width="2534" height="1424" loading="lazy" />
+                    <span class="screenshot-caption">Seller & Category Performance</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="detail-block"><h4>Business Insights / Recommendations</h4><p>Translated analytical findings into operational recommendations.</p></div>
+            <div class="detail-block"><h4>Technologies Used</h4><div class="tech-row"><span class="pill">Python</span><span class="pill">PostgreSQL</span><span class="pill">SQL</span><span class="pill">Power BI</span></div></div>
+          </div>
+          <div class="actions back-link"><a class="button secondary" href="#work">← Back to Projects</a><a class="button primary" href="https://github.com/Sirajgh8899/Olist-E-Commerce-Operations-Customer-Experience-Analytics-SQL-Power-BI-Python" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="case-study-learnofy" aria-labelledby="learnofy-case-title">
+      <div class="container">
+        <article class="case-detail">
+          <header>
+            <div>
+              <div class="case-meta"><span class="pill active">Live project</span><span class="pill">Product Analytics & Operations Platform</span></div>
+              <h3 id="learnofy-case-title">Learnofy Case Study</h3>
+              <p>Learnofy is a live student and campus platform combining study tools, student engagement, cafe promotions, scheduling, and analytics.</p>
+            </div>
+            <a class="button secondary" href="#work">← Back to Projects</a>
+          </header>
+          <div class="detail-grid">
+            <div class="detail-block"><h4>Project Overview</h4><p>Live student and campus platform combining study tools, student engagement, cafe promotions, scheduling, and analytics.</p></div>
+            <div class="detail-block"><h4>Problem</h4><p>Placeholder for the final Learnofy problem statement.</p></div>
+            <div class="detail-block"><h4>Product Concept</h4><p>Student and campus platform connecting study activity, rewards, cafe promotions, scheduling, and analytics.</p></div>
+            <div class="detail-block"><h4>Student Side</h4><p>Study activity, sessions, rewards, and AI lecture summaries.</p></div>
+            <div class="detail-block"><h4>Café / Business Side</h4><p>Cafe promotions, redemptions, traffic, and venue reporting.</p></div>
+            <div class="detail-block"><h4>Analytics</h4><ul><li>Wrote SQL queries to analyse student engagement, session behaviour, and promotional performance.</li><li>Built dashboard and reporting workflows for student and cafe-side metrics.</li><li>Audited reporting logic, identified inconsistencies, and improved data reliability.</li></ul></div>
+            <div class="detail-block"><h4>My Contribution</h4><ul><li>Developed data workflows for synchronising student activity and venue operations data.</li><li>Created Excel models for progress tracking and reward systems.</li><li>Conducted feedback sessions with students and cafe owners to refine analytics outputs.</li><li>Used Claude, Codex, and Gemini to accelerate prototyping, workflow design, and product iteration.</li></ul></div>
+            <div class="detail-block"><h4>Tools / Technologies</h4><div class="tech-row"><span class="pill">SQL</span><span class="pill">Excel</span><span class="pill">Tableau</span><span class="pill">Snowflake</span><span class="pill">Framer</span><span class="pill">AI-assisted development</span></div></div>
+            <div class="detail-block wide">
+              <h4>Screenshots</h4>
+              <div class="screenshot-gallery" aria-label="Learnofy product screenshots">
+                <button class="screenshot-card primary" type="button" data-lightbox-src="assets/projects/learnofy/student-dashboard.jpg" data-lightbox-caption="Student Dashboard">
+                  <img src="assets/projects/learnofy/student-dashboard.jpg" alt="Learnofy student dashboard product screenshot" width="1600" height="866" loading="lazy" />
+                  <span class="screenshot-caption">Student Dashboard</span>
+                </button>
+                <div class="supporting-screenshots">
+                  <button class="screenshot-card" type="button" data-lightbox-src="assets/projects/learnofy/cafe-dashboard.jpg" data-lightbox-caption="Café Dashboard">
+                    <img src="assets/projects/learnofy/cafe-dashboard.jpg" alt="Learnofy cafe dashboard product screenshot" width="1600" height="655" loading="lazy" />
+                    <span class="screenshot-caption">Café Dashboard</span>
+                  </button>
+                  <button class="screenshot-card" type="button" data-lightbox-src="assets/projects/learnofy/platform-overview.jpg" data-lightbox-caption="Learnofy Platform Overview">
+                    <img src="assets/projects/learnofy/platform-overview.jpg" alt="Learnofy platform overview product screenshot" width="1600" height="910" loading="lazy" />
+                    <span class="screenshot-caption">Learnofy Platform Overview</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="detail-block wide"><h4>Live Product Link</h4><a class="button secondary" href="#contact">Visit Live Product</a></div>
+          </div>
+          <div class="actions back-link"><a class="button secondary" href="#work">← Back to Projects</a><a class="button primary" href="#contact">Visit Live Product</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head"><div><div class="section-kicker">Experience</div><h2>Hands-on experience turning business data into useful insights.</h2></div><p>Experience across fintech and information systems, with a focus on data validation, reporting, dashboards, workflow improvement, and practical business analysis.</p></div>
+        <div class="experience-layout">
+          <div class="timeline">
+            <article class="experience-item"><div><time>Jan 2026 - Mar 2026</time><span class="location">Tripoli, Libya</span></div><div><h3>Fintech Intern - Libya Guide (GPay)</h3><ul><li>Queried and audited high-volume e-wallet transaction records using SQL / Snowflake.</li><li>Cleaned and validated financial data for operational reporting.</li><li>Identified and flagged 20+ transaction-flow discrepancies.</li><li>Supported Excel dashboard reporting for daily and weekly operational monitoring.</li><li>Summarised findings for non-technical stakeholders.</li></ul></div></article>
+            <article class="experience-item"><div><time>Jun 2025 - Oct 2025</time><span class="location">Tripoli, Libya</span></div><div><h3>Information Systems Intern - Medhorizon Aviation Services</h3><ul><li>Produced 12+ operational and technical reports.</li><li>Built 5+ Excel / Tableau dashboards.</li><li>Reduced manual reporting work by approximately 8 hours per week.</li><li>Identified 3 major workflow bottlenecks.</li><li>Built SQL-based reporting views.</li><li>Worked with operations and sales stakeholders to define reporting requirements.</li></ul></div></article>
+          </div>
+          <aside class="education-card"><div class="section-kicker">Education</div><h3>Bachelor of Science in Management Information Systems</h3><p>Istanbul Bilgi University</p></aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head"><div><div class="section-kicker">About</div><h2>Skills & Tools</h2></div><p>Compact skill areas across business intelligence, data workflows, analytics methods, systems thinking, and AI-assisted productivity.</p></div>
+        <div class="about-grid">
+          <div class="skill-group"><h3>Data & BI</h3><div class="skill-tags"><span class="pill">SQL</span><span class="pill">Excel</span><span class="pill">Power BI</span><span class="pill">Tableau</span><span class="pill">R</span></div></div>
+          <div class="skill-group"><h3>Programming & Data</h3><div class="skill-tags"><span class="pill">Python</span><span class="pill">Snowflake</span><span class="pill">HTML</span><span class="pill">CSS</span></div></div>
+          <div class="skill-group"><h3>Analytics</h3><div class="skill-tags"><span class="pill">Data Cleaning</span><span class="pill">Data Validation</span><span class="pill">Statistical Analysis</span><span class="pill">Regression</span><span class="pill">Dashboard Design</span><span class="pill">Reporting</span></div></div>
+          <div class="skill-group"><h3>Business & Systems</h3><div class="skill-tags"><span class="pill">Systems Analysis</span><span class="pill">Business Process Improvement</span><span class="pill">Database Management</span><span class="pill">Requirements Analysis</span></div></div>
+          <div class="skill-group"><h3>AI Tools</h3><div class="skill-tags"><span class="pill">Claude</span><span class="pill">OpenAI Codex</span><span class="pill">Gemini</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div><div class="section-kicker">Contact</div><h2>Let’s build clearer reporting systems.</h2><p>Available for data analyst, business intelligence, operations analytics, and product analytics opportunities.</p><div class="contact-links"><a href="mailto:sirajeddin8899@gmail.com">sirajeddin8899@gmail.com</a><a href="https://www.linkedin.com/in/sirajgheryani" target="_blank" rel="noopener">linkedin.com/in/sirajgheryani</a><a href="https://github.com/Sirajgh8899" target="_blank" rel="noopener">github.com/Sirajgh8899</a></div></div>
+          <div class="actions"><a class="button" href="mailto:sirajeddin8899@gmail.com">Email Me</a><a class="button" href="https://www.linkedin.com/in/sirajgheryani" target="_blank" rel="noopener">LinkedIn</a><a class="button" href="https://github.com/Sirajgh8899" target="_blank" rel="noopener">GitHub</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="screenshotLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+    <div class="lightbox-panel" role="document">
+      <div class="lightbox-top">
+        <div class="lightbox-title" id="lightboxTitle">Project screenshot</div>
+        <button class="lightbox-close" type="button" aria-label="Close screenshot preview">x</button>
+      </div>
+      <div class="lightbox-image-wrap"><img id="lightboxImage" src="" alt="" /></div>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <footer><div class="container footer-inner"><span>© 2026 Serajeddin Elgheryani</span><span>Data Analyst & Business Intelligence Portfolio</span></div></footer>
+
+  <script>
+    (function(){
+      var storageKey = "portfolio-theme";
+      var mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      var buttons = document.querySelectorAll("[data-theme-value]");
+      var siteNav = document.getElementById("siteNav");
+      var menuButton = document.querySelector(".mobile-menu-button");
+      var mobilePanel = document.getElementById("mobilePanel");
+      function storedMode(){var value = null;try {value = window.localStorage ? window.localStorage.getItem(storageKey) : null;} catch (error) {}return value === "light" || value === "dark" ? value : "auto";}
+      function resolvedTheme(mode){return mode === "auto" ? (mediaQuery.matches ? "dark" : "light") : mode;}
+      function applyTheme(mode){var theme = resolvedTheme(mode);document.documentElement.dataset.theme = theme;document.documentElement.dataset.themeMode = mode;document.documentElement.style.colorScheme = theme;buttons.forEach(function(button){button.setAttribute("aria-pressed", String(button.dataset.themeValue === mode));});}
+      buttons.forEach(function(button){button.addEventListener("click", function(){var mode = button.dataset.themeValue;try {if (window.localStorage) {if (mode === "auto") {window.localStorage.removeItem(storageKey);} else {window.localStorage.setItem(storageKey, mode);}}} catch (error) {}applyTheme(mode);});});
+      function handleSystemThemeChange(){if (storedMode() === "auto") applyTheme("auto");}
+      if (mediaQuery.addEventListener) mediaQuery.addEventListener("change", handleSystemThemeChange); else if (mediaQuery.addListener) mediaQuery.addListener(handleSystemThemeChange);
+      if (menuButton && mobilePanel && siteNav) {
+        menuButton.addEventListener("click", function(){var expanded = menuButton.getAttribute("aria-expanded") === "true";menuButton.setAttribute("aria-expanded", String(!expanded));menuButton.setAttribute("aria-label", expanded ? "Open navigation menu" : "Close navigation menu");siteNav.classList.toggle("menu-open", !expanded);});
+        mobilePanel.querySelectorAll("a").forEach(function(link){link.addEventListener("click", function(){menuButton.setAttribute("aria-expanded", "false");menuButton.setAttribute("aria-label", "Open navigation menu");siteNav.classList.remove("menu-open");});});
+      }
+      var lightbox = document.getElementById("screenshotLightbox");
+      var lightboxImage = document.getElementById("lightboxImage");
+      var lightboxTitle = document.getElementById("lightboxTitle");
+      var lightboxCaption = document.getElementById("lightboxCaption");
+      var lightboxClose = document.querySelector(".lightbox-close");
+      var lastFocusedTrigger = null;
+      function closeLightbox(){if (!lightbox) return;lightbox.classList.remove("is-open");lightbox.setAttribute("aria-hidden", "true");document.body.classList.remove("lightbox-open");if (lightboxImage) {lightboxImage.removeAttribute("src");lightboxImage.alt = "";}if (lastFocusedTrigger) lastFocusedTrigger.focus();}
+      document.querySelectorAll("[data-lightbox-src]").forEach(function(trigger){trigger.addEventListener("click", function(){var img = trigger.querySelector("img");var caption = trigger.dataset.lightboxCaption || "";lastFocusedTrigger = trigger;if (lightboxImage) {lightboxImage.src = trigger.dataset.lightboxSrc;lightboxImage.alt = img ? img.alt : caption;}if (lightboxTitle) lightboxTitle.textContent = caption || "Project screenshot";if (lightboxCaption) lightboxCaption.textContent = caption;lightbox.classList.add("is-open");lightbox.setAttribute("aria-hidden", "false");document.body.classList.add("lightbox-open");if (lightboxClose) lightboxClose.focus();});});
+      if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+      if (lightbox) lightbox.addEventListener("click", function(event){if (event.target === lightbox) closeLightbox();});
+      document.addEventListener("keydown", function(event){if (event.key === "Escape" && lightbox && lightbox.classList.contains("is-open")) closeLightbox();});
+      applyTheme(storedMode());
+    })();
+  </script>
+</body>
+</html>
