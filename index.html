@@ -185,6 +185,23 @@
             </div>
           </article>
 
+          <article class="case-study completed" id="fintech">
+            <div class="case-copy">
+              <div class="case-meta"><span class="pill active">Completed Project</span><span class="pill">Data Analytics / FinTech</span></div>
+              <h3>FinTech Transaction &amp; Risk Analytics</h3>
+              <p>End-to-end FinTech analytics project analyzing 100,000 financial transactions using PostgreSQL, SQL, Power BI, DAX, and Python. The project investigates payment performance, customer and merchant behavior, and rule-based flagged transaction activity.</p>
+              <div class="tech-row" aria-label="Key metrics"><span class="pill">100K Transactions</span><span class="pill">$6.69M Transaction Value</span><span class="pill">96.03% Success Rate</span><span class="pill">4.33% Flagged Transactions</span></div>
+              <div class="tech-row"><span class="pill">PostgreSQL</span><span class="pill">SQL</span><span class="pill">Power BI</span><span class="pill">DAX</span><span class="pill">Python</span><span class="pill">Jupyter Notebook</span></div>
+              <div class="actions"><a class="button primary" href="#case-study-fintech">View Case Study</a><a class="button secondary" href="https://github.com/Sirajgh8899/fintech-transaction-analytics" target="_blank" rel="noopener">View on GitHub</a></div>
+            </div>
+            <div class="project-visual">
+              <button class="screenshot-card primary" type="button" data-lightbox-src="assets/projects/fintech/executive-overview.png" data-lightbox-caption="Executive Overview">
+                  <img src="assets/projects/fintech/executive-overview.png" alt="FinTech Power BI dashboard showing executive overview" width="2312" height="1294" loading="lazy" />
+                  <span class="screenshot-caption">Executive Overview</span>
+                </button>
+            </div>
+          </article>
+
           <article class="case-study completed" id="learnofy">
             <div class="case-copy">
               <div class="case-meta"><span class="pill active">Live project</span><span class="pill">Product Analytics & Operations Platform</span></div>
@@ -265,6 +282,40 @@
             <div class="detail-block"><h4>Technologies Used</h4><div class="tech-row"><span class="pill">Python</span><span class="pill">PostgreSQL</span><span class="pill">SQL</span><span class="pill">Power BI</span></div></div>
           </div>
           <div class="actions back-link"><a class="button secondary" href="#work">← Back to Projects</a><a class="button primary" href="https://github.com/Sirajgh8899/Olist-E-Commerce-Operations-Customer-Experience-Analytics-SQL-Power-BI-Python" target="_blank" rel="noopener">GitHub</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="case-study-fintech" aria-labelledby="fintech-case-title">
+      <div class="container">
+        <article class="case-detail">
+          <header>
+            <div>
+              <div class="case-meta"><span class="pill active">Completed Project</span><span class="pill">Data Analytics / FinTech</span></div>
+              <h3 id="fintech-case-title">FinTech Transaction &amp; Risk Analytics</h3>
+              <p>Payment performance, customer and merchant behavior, and rule-based flagged activity across 100,000 synthetic transactions.</p>
+            </div>
+            <a class="button secondary" href="#work">← Back to Projects</a>
+          </header>
+          <div class="detail-grid">
+            <div class="detail-block"><h4>Overview</h4><p>An end-to-end synthetic FinTech transaction analytics case study covering 100,000 transactions, from Python dataset generation and PostgreSQL analysis to Power BI dashboards and business insights.</p></div>
+            <div class="detail-block"><h4>Business Problem</h4><p>Analyze transaction volume and value, payment reliability and failures, customer behavior, merchant performance, geographic patterns, rule-based flagged transaction activity, and risk concentration.</p></div>
+            <div class="detail-block"><h4>Dataset</h4><p>Synthetic data for portfolio analysis: 100,000 transactions, 5,000 customers, and 50 merchants, covering January–December 2025.</p></div>
+            <div class="detail-block"><h4>Analytics Workflow</h4><p>Python dataset generation → PostgreSQL → data-quality validation → SQL KPI/trend/customer/merchant/risk analysis → risk validation → reporting-ready SQL views → Power BI → DAX → business insights.</p></div>
+            <div class="detail-block wide"><h4>Key Results</h4><ul><li>Total Transactions: 100,000</li><li>Transaction Value: $6.69M</li><li>Success Rate: 96.03%</li><li>Failure Rate: 3.98%</li><li>Flagged Transactions: 4.33%</li><li>Flagged Transaction Value: $487.34K</li><li>Customers with Flagged Activity: 10.68%</li><li>Top 10% of flagged customers generated 30.42% of all flagged transactions</li><li>International flagged rate: 5.09%</li><li>Domestic flagged rate: 0.24%</li></ul></div>
+            <div class="detail-block wide"><h4>Dashboard</h4><div class="screenshot-gallery" aria-label="FinTech Power BI dashboard screenshots"><button class="screenshot-card primary" type="button" data-lightbox-src="assets/projects/fintech/executive-overview.png" data-lightbox-caption="Executive Overview">
+                  <img src="assets/projects/fintech/executive-overview.png" alt="FinTech Power BI dashboard showing executive overview" width="2312" height="1294" loading="lazy" />
+                  <span class="screenshot-caption">Executive Overview</span>
+                </button><button class="screenshot-card" type="button" data-lightbox-src="assets/projects/fintech/customer-risk-analysis.png" data-lightbox-caption="Customer &amp; Risk Analysis">
+                  <img src="assets/projects/fintech/customer-risk-analysis.png" alt="FinTech Power BI dashboard showing customer &amp; risk analysis" width="2300" height="1296" loading="lazy" />
+                  <span class="screenshot-caption">Customer &amp; Risk Analysis</span>
+                </button></div></div>
+            <div class="detail-block"><h4>Key Insights</h4><ul><li>Flagged transactions averaged $112.47 versus approximately $64.85 for non-flagged transactions.</li><li>534 of 5,000 customers had flagged activity.</li><li>Germany had the highest flagged transaction rate at 5.14%.</li><li>Credit Card had the highest payment-method flagged rate at 4.50%.</li><li>International transactions had substantially higher flagged activity than domestic transactions.</li><li>Flagged activity was concentrated among a relatively small customer group.</li></ul></div>
+            <div class="detail-block"><h4>Business Recommendations</h4><ul><li>Prioritize high-risk customer profiles.</li><li>Apply additional monitoring to international transactions.</li><li>Prioritize higher-value flagged activity when investigation capacity is limited.</li><li>Investigate geographic differences before implementing country-specific controls.</li><li>Monitor payment-method patterns together with other risk indicators.</li><li>Establish merchant-level monitoring.</li></ul></div>
+            <div class="detail-block"><h4>Technologies</h4><div class="tech-row"><span class="pill">PostgreSQL</span><span class="pill">SQL</span><span class="pill">Power BI</span><span class="pill">DAX</span><span class="pill">Python</span><span class="pill">Jupyter Notebook</span></div></div>
+            <div class="detail-block"><h4>Limitations</h4><p>This project uses a synthetic dataset for portfolio and analytical purposes. The <code>risk_flag</code> represents rule-based flagged activity and should not be interpreted as confirmed fraud.</p></div>
+          </div>
+          <div class="actions back-link"><a class="button secondary" href="#work">← Back to Projects</a><a class="button primary" href="https://github.com/Sirajgh8899/fintech-transaction-analytics" target="_blank" rel="noopener">GitHub</a></div>
         </article>
       </div>
     </section>
